@@ -235,7 +235,7 @@ var (
 	DefaultMapType = reflect.TypeOf(map[interface{}]interface{}{})
 	mapItemType    = reflect.TypeOf(MapItem{})
 	durationType   = reflect.TypeOf(time.Duration(0))
-	ifaceType      = DefaultMapType.Elem()
+	IfaceType      = DefaultMapType.Elem()
 	timeType       = reflect.TypeOf(time.Time{})
 	ptrTimeType    = reflect.TypeOf(&time.Time{})
 )
@@ -608,7 +608,7 @@ func (d *decoder) mapping(n *node, out reflect.Value) (good bool) {
 	et := outt.Elem()
 
 	mapType := d.mapType
-	if outt.Key() == ifaceType && outt.Elem() == ifaceType {
+	if outt.Key() == IfaceType && outt.Elem() == IfaceType {
 		d.mapType = outt
 	}
 
